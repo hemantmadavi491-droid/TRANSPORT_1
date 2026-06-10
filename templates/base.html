@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Management System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <div class="logo">
+            <h2>🚚 TransLogix</h2>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="{{ url_for('dashboard') }}">
+    <i class="fas fa-chart-line"></i>
+    Dashboard
+</a>
+            </li>
+
+            <li>
+                <a href="/vehicles">
+                    <i class="fas fa-truck"></i>
+                    Vehicles
+                </a>
+            </li>
+
+            <li>
+                <a href="/drivers">
+                    <i class="fas fa-user"></i>
+                    Drivers
+                </a>
+            </li>
+
+            <li>
+                <a href="/customers">
+                    <i class="fas fa-users"></i>
+                    Customers
+                </a>
+            </li>
+
+            <li>
+                <a href="/trips">
+                    <i class="fas fa-route"></i>
+                    Trips
+                </a>
+            </li>
+
+            <li>
+                <a href="/reports">
+                    <i class="fas fa-file-alt"></i>
+                    Reports
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Navbar -->
+        <div class="navbar">
+
+            <h1>Transport Management System</h1>
+
+            <div class="profile">
+
+    <i class="fas fa-bell"></i>
+
+    <a href="{{ url_for('logout') }}">
+        <img src="https://ui-avatars.com/api/?name=Admin"
+             alt="Admin"
+             title="Logout">
+    </a>
+
+</div>
+        </div>
+
+        <!-- Page Content -->
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+</body>
+</html>

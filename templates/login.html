@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transport Management Login</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    overflow:hidden;
+}
+
+body::before{
+    content:'';
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#38bdf8;
+    border-radius:50%;
+    top:-150px;
+    left:-150px;
+    filter:blur(150px);
+}
+
+body::after{
+    content:'';
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#6366f1;
+    border-radius:50%;
+    bottom:-150px;
+    right:-150px;
+    filter:blur(150px);
+}
+
+.login-container{
+    width:420px;
+    padding:40px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    text-align:center;
+    z-index:10;
+}
+
+.logo{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+h1{
+    color:white;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#cbd5e1;
+    margin-bottom:30px;
+}
+
+.input-group{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.input-group i{
+    position:absolute;
+    left:15px;
+    top:16px;
+    color:#94a3b8;
+}
+
+.input-group input{
+    width:100%;
+    padding:14px 14px 14px 45px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:rgba(255,255,255,0.12);
+    color:white;
+    font-size:15px;
+}
+
+.input-group input::placeholder{
+    color:#cbd5e1;
+}
+
+.login-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#38bdf8,#2563eb);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    transform:translateY(-2px);
+}
+
+.footer{
+    margin-top:20px;
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="logo">🚚</div>
+
+    <h1>TransLogix</h1>
+
+    <p class="subtitle">
+        Transport Management System
+    </p>
+
+    <form method="POST">
+
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text"
+                   name="username"
+                   placeholder="Username"
+                   required>
+        </div>
+
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password"
+                   name="password"
+                   placeholder="Password"
+                   required>
+        </div>
+
+        <button type="submit" class="login-btn">
+            Login
+        </button>
+
+    </form>
+
+    <div class="footer">
+        © 2026 TransLogix • Secure Transport Platform
+    </div>
+
+</div>
+
+</body>
+</html>
