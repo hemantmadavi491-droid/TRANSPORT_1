@@ -1,39 +1,31 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
 
-<div class="page-header">
-    <h2>👥 Customer Management</h2>
-</div>
+<h2 class="page-title">
+    👥 Customer Management
+</h2>
 
-<div class="table-container">
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Customer Name</th>
+            <th>Mobile Number</th>
+            <th>Address</th>
+        </tr>
+    </thead>
 
-    <table>
-
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Mobile</th>
-                <th>Address</th>
-            </tr>
-        </thead>
-
-        <tbody>
-
-            {% for customer in customers %}
-            <tr>
-                <td>{{ customer.id }}</td>
-                <td>{{ customer.name }}</td>
-                <td>{{ customer.mobile }}</td>
-                <td>{{ customer.address }}</td>
-            </tr>
-            {% endfor %}
-
-        </tbody>
-
-    </table>
-
-</div>
+    <tbody>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.id }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.mobile }}</td>
+            <td>{{ customer.address }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Create Account</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+}
+
+.container{
+    width:420px;
+    padding:40px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 10px 40px rgba(0,0,0,0.4);
+}
+
+.logo{
+    text-align:center;
+    color:white;
+    margin-bottom:25px;
+}
+
+.logo i{
+    font-size:55px;
+    color:#38bdf8;
+}
+
+.logo h2{
+    margin-top:10px;
+}
+
+.input-box{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.input-box input{
+    width:100%;
+    padding:14px 45px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    font-size:16px;
+}
+
+.input-box i{
+    position:absolute;
+    left:15px;
+    top:15px;
+    color:#cbd5e1;
+}
+
+input::placeholder{
+    color:#cbd5e1;
+}
+
+.btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#38bdf8;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#0ea5e9;
+    transform:translateY(-2px);
+}
+
+.login-link{
+    text-align:center;
+    margin-top:20px;
+    color:white;
+}
+
+.login-link a{
+    color:#38bdf8;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.login-link a:hover{
+    text-decoration:underline;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        <i class="fas fa-truck-moving"></i>
+        <h2>Create Account</h2>
+        <p>Transport Management System</p>
+    </div>
+
+    <form method="POST">
+
+        <div class="input-box">
+            <i class="fas fa-user"></i>
+            <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                required>
+        </div>
+
+        <div class="input-box">
+            <i class="fas fa-lock"></i>
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required>
+        </div>
+
+        <button type="submit" class="btn">
+            Create Account
+        </button>
+
+    </form>
+
+    <div class="login-link">
+        Already have an account?
+        <a href="{{ url_for('login') }}">
+            Login Here
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

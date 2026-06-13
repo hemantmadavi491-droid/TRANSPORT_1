@@ -5,94 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transport Management System</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
         <div class="logo">
-            <h2>🚚 TransLogix</h2>
+            🚚 <span>TransLogix</span>
         </div>
 
-        <ul>
+        <ul class="sidebar-menu">
 
             <li>
                 <a href="{{ url_for('dashboard') }}">
-    <i class="fas fa-chart-line"></i>
-    Dashboard
-</a>
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
             </li>
 
             <li>
-                <a href="/vehicles">
+                <a href="{{ url_for('vehicles') }}">
                     <i class="fas fa-truck"></i>
-                    Vehicles
+                    <span>Vehicles</span>
                 </a>
             </li>
 
             <li>
-                <a href="/drivers">
+                <a href="{{ url_for('drivers') }}">
                     <i class="fas fa-user"></i>
-                    Drivers
+                    <span>Drivers</span>
                 </a>
             </li>
 
             <li>
-                <a href="/customers">
+                <a href="{{ url_for('customers') }}">
                     <i class="fas fa-users"></i>
-                    Customers
+                    <span>Customers</span>
                 </a>
             </li>
 
             <li>
-                <a href="/trips">
+                <a href="{{ url_for('trips') }}">
                     <i class="fas fa-route"></i>
-                    Trips
+                    <span>Trips</span>
                 </a>
             </li>
 
             <li>
-                <a href="/reports">
+                <a href="{{ url_for('reports') }}">
                     <i class="fas fa-file-alt"></i>
-                    Reports
+                    <span>Reports</span>
                 </a>
             </li>
 
         </ul>
 
-    </div>
+    </aside>
 
-    <!-- Main Content -->
-    <div class="main-content">
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
 
-        <!-- Navbar -->
+        <!-- TOP NAVBAR -->
         <div class="navbar">
 
-            <h1>Transport Management System</h1>
+            <div class="nav-title">
+                <h1>Transport Management System</h1>
+            </div>
 
-            <div class="profile">
+            <div class="nav-right">
 
-    <i class="fas fa-bell"></i>
+                <div class="notification">
+                    <i class="fas fa-bell"></i>
+                </div>
 
-    <a href="{{ url_for('logout') }}">
-        <img src="https://ui-avatars.com/api/?name=Admin"
-             alt="Admin"
-             title="Logout">
-    </a>
+                <div class="profile-menu">
+
+                    <div class="profile-pic profile-avatar"
+     onclick="toggleMenu()">
+
+    {% if user and user.full_name %}
+        {{ user.full_name[0].upper() }}
+    {% elif user %}
+        {{ user.username[0].upper() }}
+    {% else %}
+        A
+    {% endif %}
 
 </div>
+                    >
+
+                    <div class="dropdown" id="dropdownMenu">
+
+                        <a href="{{ url_for('profile') }}">
+                            <i class="fas fa-user"></i>
+                            My Profile
+                        </a>
+
+                        <a href="{{ url_for('settings') }}">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+
+                        <a href="{{ url_for('support') }}">
+                            <i class="fas fa-headset"></i>
+                            Customer Care
+                        </a>
+
+                        <a href="{{ url_for('about') }}">
+                            <i class="fas fa-info-circle"></i>
+                            About System
+                        </a>
+
+                        <a href="{{ url_for('change_password') }}">
+                            <i class="fas fa-key"></i>
+                            Change Password
+                        </a>
+
+                        <hr>
+
+                        <a href="{{ url_for('logout') }}" class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <!-- Page Content -->
+        <!-- PAGE CONTENT -->
         {% block content %}
         {% endblock %}
 
-    </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 </html>

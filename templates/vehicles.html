@@ -1,39 +1,31 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
 
-<div class="page-header">
-    <h2>🚛 Vehicle Management</h2>
-</div>
+<h2 class="page-title">
+    🚚 Vehicle Management
+</h2>
 
-<div class="table-container">
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Vehicle Number</th>
+            <th>Vehicle Type</th>
+            <th>Status</th>
+        </tr>
+    </thead>
 
-    <table>
-
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Vehicle Number</th>
-                <th>Vehicle Type</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-
-        <tbody>
-
-            {% for vehicle in vehicles %}
-            <tr>
-                <td>{{ vehicle.id }}</td>
-                <td>{{ vehicle.vehicle_no }}</td>
-                <td>{{ vehicle.vehicle_type }}</td>
-                <td>{{ vehicle.status }}</td>
-            </tr>
-            {% endfor %}
-
-        </tbody>
-
-    </table>
-
-</div>
+    <tbody>
+        {% for v in vehicles %}
+        <tr>
+            <td>{{ v.id }}</td>
+            <td>{{ v.vehicle_no }}</td>
+            <td>{{ v.vehicle_type }}</td>
+            <td>{{ v.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}

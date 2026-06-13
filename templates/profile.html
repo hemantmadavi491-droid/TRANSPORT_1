@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="profile-card">
+
+    <h2>
+        <i class="fas fa-user-circle"></i>
+        My Profile
+    </h2>
+
+    <form method="POST">
+
+        <label>Full Name</label>
+        <input
+            type="text"
+            name="full_name"
+            value="{{ user.full_name or '' }}"
+            required>
+
+        <label>Email</label>
+        <input
+            type="email"
+            name="email"
+            value="{{ user.email or '' }}">
+
+        <label>Mobile</label>
+        <input
+            type="text"
+            name="mobile"
+            value="{{ user.mobile or '' }}">
+
+        <label>Address</label>
+        <textarea
+            name="address"
+            rows="4">{{ user.address or '' }}</textarea>
+
+        <button type="submit">
+            Update Profile
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
