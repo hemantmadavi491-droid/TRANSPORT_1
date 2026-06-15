@@ -503,3 +503,102 @@ table tr:hover{
     cursor:pointer;
     border:3px solid #3b82f6;
 }
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media screen and (max-width: 768px){
+
+    .sidebar{
+        width: 80px;
+        padding: 20px 10px;
+    }
+
+    .logo span{
+        display:none;
+    }
+
+    .sidebar ul li a span{
+        display:none;
+    }
+
+    .sidebar ul li a{
+        justify-content:center;
+        padding:15px;
+    }
+
+    .main-content{
+        margin-left:80px;
+        width:calc(100% - 80px);
+        padding:15px;
+    }
+
+    .navbar{
+        padding:15px;
+        flex-wrap:wrap;
+    }
+
+    .navbar h1{
+        font-size:18px;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .card h2{
+        font-size:28px;
+    }
+
+    .table-container{
+        overflow-x:auto;
+    }
+
+    table{
+        min-width:700px;
+    }
+
+    .profile-pic{
+        width:45px;
+        height:45px;
+    }
+
+    .dropdown{
+        width:220px;
+        right:0;
+    }
+}
+
+/* Extra Small Devices */
+
+@media screen and (max-width: 480px){
+
+    .main-content{
+        padding:10px;
+    }
+
+    .navbar h1{
+        font-size:16px;
+    }
+
+    .card{
+        padding:15px;
+    }
+
+    .card i{
+        font-size:35px;
+    }
+
+    .card h2{
+        font-size:22px;
+    }
+
+    .card p{
+        font-size:14px;
+    }
+}

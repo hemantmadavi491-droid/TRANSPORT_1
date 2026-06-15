@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import os
 
 app = Flask(__name__)
+app.secret_key = "transport_secret_key"
 
 # =========================
 # DATABASE SETUP
@@ -61,9 +62,13 @@ class User(db.Model):
 
 @app.context_processor
 def inject_user():
-    user = User.query.first()
-    return dict(user=user)
 
+    user = None
+
+    if session.get("user_id"):
+        user = User.query.get(session["user_id"])
+
+    return dict(current_user=user)
 # =========================
 # HOME
 # =========================
@@ -90,6 +95,12 @@ def login():
         ).first()
 
         if user:
+
+            session["user_id"] = user.id
+
+            if not user.full_name:
+                return redirect(url_for("profile"))
+
             return redirect(url_for("dashboard"))
 
         return "Invalid Username or Password"
@@ -225,7 +236,10 @@ def reports():
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
 
-    user = User.query.first()
+    user = User.query.get(session.get("user_id"))
+
+    if not user:
+        return redirect(url_for("login"))
 
     if request.method == "POST":
 
@@ -236,13 +250,12 @@ def profile():
 
         db.session.commit()
 
-        return redirect(url_for("profile"))
+        return redirect(url_for("dashboard"))
 
     return render_template(
         "profile.html",
         user=user
     )
-
 
 @app.route("/settings")
 def settings():
@@ -269,8 +282,10 @@ def change_password():
 
 @app.route("/logout")
 def logout():
-    return redirect(url_for("login"))
 
+    session.clear()
+
+    return redirect(url_for("login"))
 # =========================
 # CREATE DATABASE & SAMPLE DATA
 # =========================
