@@ -87,16 +87,17 @@
 
                 <div class="profile-menu">
 
-                    <div class="profile-pic profile-avatar"
-     onclick="toggleMenu()">
+                  <div class="profile-pic profile-avatar" onclick="toggleMenu()">
 
-    {% if user and user.full_name %}
-        {{ user.full_name[0].upper() }}
-    {% elif user %}
-        {{ user.username[0].upper() }}
-    {% else %}
-        A
-    {% endif %}
+{% if current_user and current_user.full_name %}
+    {{ current_user.full_name[0].upper() }}
+{% elif current_user %}
+    {{ current_user.username[0].upper() }}
+{% else %}
+    A
+{% endif %}
+
+</div>
 
 </div>
                     >

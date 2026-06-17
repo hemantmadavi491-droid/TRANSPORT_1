@@ -251,7 +251,7 @@ def profile():
         db.session.commit()
 
         return redirect(url_for("dashboard"))
-
+    return render_template("profile.html", user=user)
     return render_template(
         "profile.html",
         user=user
